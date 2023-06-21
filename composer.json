@@ -19,5 +19,6 @@
             "name": "dwikipeddos",
             "email": "arisxxx5@gmail.com"
         }
-    ]
+    ],
+    "minimum-stability": "dev"
 }
