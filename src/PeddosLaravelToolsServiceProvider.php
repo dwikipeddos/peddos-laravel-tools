@@ -4,7 +4,7 @@ namespace Dwikipeddos\PeddosLaravelTools;
 
 use Illuminate\Support\ServiceProvider;
 
-class PeddosLaravelTools extends ServiceProvider
+class PeddosLaravelToolsServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
