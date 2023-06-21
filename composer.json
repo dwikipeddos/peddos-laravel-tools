@@ -1,0 +1,23 @@
+{
+    "name": "dwikipeddos/peddos-laravel-tools",
+    "description": "peddos's tool for laravel development",
+    "require": {
+        "spatie/laravel-permission": "^5.10",
+        "spatie/laravel-medialibrary": "^10.9",
+        "spatie/laravel-activitylog": "^4.7",
+        "spatie/laravel-query-builder": "^5.2",
+        "spatie/laravel-data": "^3.6"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Dwikipeddos\\PeddosLaravelTools\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "dwikipeddos",
+            "email": "arisxxx5@gmail.com"
+        }
+    ]
+}
