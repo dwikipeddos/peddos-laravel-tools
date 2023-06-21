@@ -9,7 +9,7 @@ trait LoginThrottle
 {
     public function ensureNotRateLimited()
     {
-        if (RateLimiter::tooManyAttempts($this->throttleKey(), config('auth.max_login_attempt'))) {
+        if (RateLimiter::tooManyAttempts($this->throttleKey(), config('peddoslaraveltools.max_login_attempt'))) {
             throw ValidationException::withMessages([
                 'email' => __('auth.throttle', ['seconds' => RateLimiter::availableIn($this->throttleKey())]),
             ]);

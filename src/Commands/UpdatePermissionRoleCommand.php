@@ -29,7 +29,7 @@ class UpdatePermissionRoleCommand extends Command
      */
     public function handle()
     {
-        $permissions = config('PeddosPermissionConfig.available_permissions');
+        $permissions = config('peddoslaraveltools.available_permissions');
 
         $allPermissions = Permission::all();
         $allRoles = Role::all();
