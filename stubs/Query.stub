@@ -19,7 +19,7 @@ class {Name}Query extends PaginatedQuery
        //'phone',
     ];
 
-    protected string $adminPermission = '{name}view-sensitive-data';
+    protected string $adminPermission = '{name}.view-sensitive-data';
 
     protected function getAllowedSorts(): array
     {
