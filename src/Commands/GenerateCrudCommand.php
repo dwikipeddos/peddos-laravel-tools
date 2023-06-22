@@ -37,6 +37,7 @@ class GenerateCrudCommand extends Command
             $this->generateRequests($name);
             $this->generateQuery($name);
             $this->generateController($name);
+            $this->generateRoute($name);
             $this->info("$name has been fully generated!");
             return Command::SUCCESS;
         } catch (Exception $e) {
@@ -68,6 +69,16 @@ class GenerateCrudCommand extends Command
     function generateQuery(string $name): void
     {
         $this->generateFileFromStub("Query", "Query", "Queries/", $name);
+    }
+
+    function generateRoute(string $name): void
+    {
+        $route = "Route::apiResource(" . Str::lower($name) . ", " . ucfirst($name) . "Controller::class);";
+        $apiRoutesPath = base_path('routes/api.php'); // Path to the API routes file
+        $content = File::get($apiRoutesPath); // Read the content of the API routes file
+        $newContent = $content . "\n" . $route; // Append the custom route to the existing content
+        File::put($apiRoutesPath, $newContent); // Write the updated content back to the API routes file
+        $this->info('Route created');
     }
 
     function generateFileFromStub(string $stub, string $filenameSuffix, string $fileLocation, string $name): void

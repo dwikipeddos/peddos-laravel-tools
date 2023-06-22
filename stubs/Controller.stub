@@ -19,9 +19,9 @@ class {Name}Controller extends Controller
         return {Name}::create($request->validated());
     }
 
-    public function show(${name}, ${Name}Query $query)
+    public function show(${name}, {Name}Query $query)
     {
-        return $query->includes()->findAndAppend($queue);
+        return $query->includes()->findAndAppend(${name});
     }
 
     public function update({Name}UpdateRequest $request, {Name} ${name})
