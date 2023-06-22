@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Requests\{Name}StoreRequest;
 use App\Http\Requests\{Name}UpdateRequest;
 use App\Models\{Name};
-
+use App\Queries\{Name}Query;
 
 class {Name}Controller extends Controller
 {
-    public function index()
+    public function index({Name}Query ${name}Query)
     {
-        return {Name}::all();
+        return ${name}Query->includes()->filterSortPaginateWithAppend();
     }
 
     public function store({Name}StoreRequest $request)
@@ -19,9 +19,9 @@ class {Name}Controller extends Controller
         return {Name}::create($request->validated());
     }
 
-    public function show({Name} ${name})
+    public function show(${name}, ${Name}Query $query)
     {
-        return ${name};
+        return $query->includes()->findAndAppend($queue);
     }
 
     public function update({Name}UpdateRequest $request, {Name} ${name})

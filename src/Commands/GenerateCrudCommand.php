@@ -35,6 +35,7 @@ class GenerateCrudCommand extends Command
             $this->generateModel($name);
             $this->generatePolicy($name);
             $this->generateRequests($name);
+            $this->generateQuery($name);
             $this->generateController($name);
             $this->info("$name has been fully generated!");
             return Command::SUCCESS;
@@ -64,20 +65,22 @@ class GenerateCrudCommand extends Command
         $this->generateFileFromStub("Policy", "Policy", "Policies/", $name);
     }
 
+    function generateQuery(string $name): void
+    {
+        $this->generateFileFromStub("Query", "Query", "Queries/", $name);
+    }
 
     function generateFileFromStub(string $stub, string $filenameSuffix, string $fileLocation, string $name): void
     {
         $className = ucfirst($name) . $filenameSuffix;
 
         $stubPath = dirname(__DIR__, 2) . '/stubs/';
-        // $content = File::get(base_path("stubs/$stub.stub"));
-        // dd(['stub' => $stubPath, 'full' => $stubPath . "$stub.stub"]);
         $content = File::get($stubPath . "$stub.stub");
-
 
         $content = str_replace('{name}', Str::lower($name), $content);
         $content = str_replace('{Name}', ucfirst($name), $content);
 
+        File::ensureDirectoryExists(app_path($fileLocation));
         File::put(app_path("$fileLocation" . $className . '.php'), $content);
         $this->info($className . "generated $className successfully!");
     }

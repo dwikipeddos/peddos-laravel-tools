@@ -1,0 +1,43 @@
+<?php
+
+namespace App\Queries;
+
+use App\Models\{Name};
+use Spatie\QueryBuilder\AllowedFilter;
+use Spatie\QueryBuilder\AllowedInclude;
+use Spatie\QueryBuilder\AllowedSort;
+use Dwikipeddos\PeddosLaravelTools\Queries\PaginatedQuery;
+
+class {Name}Query extends PaginatedQuery
+{
+    public function __construct()
+    {
+        parent::__construct({Name}::query());
+    }
+
+    protected array $append = [
+       //'phone',
+    ];
+
+    protected string $adminPermission = '{name}view-sensitive-data';
+
+    protected function getAllowedSorts(): array
+    {
+        return [
+            //AllowedSort::field('created_at'),
+        ];
+    }
+
+    protected function getAllowedFilters(): array
+    {
+        return [
+            //AllowedFilter::exact('name'),
+        ];
+    }
+
+    protected function getAllowedIncludes(): array
+    {
+        return [
+            //AllowedInclude::relationship('user'),
+        ];
+    }
