@@ -2,7 +2,7 @@
 
 namespace Dwikipeddos\PeddosLaravelTools;
 
-use App\Console\Commands\GenerateCrudCommand;
+use Dwikipeddos\PeddosLaravelTools\Console\Commands\GenerateCrudCommand;
 use Dwikipeddos\PeddosLaravelTools\Console\Commands\UpdatePermissionRoleCommand;
 use Illuminate\Support\ServiceProvider;
 
