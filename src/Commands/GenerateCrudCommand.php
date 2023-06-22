@@ -1,6 +1,6 @@
 <?php
 
-namespace Dwikipeddos\PeddosLaravelTools\Console\Commands;
+namespace Dwikipeddos\PeddosLaravelTools\Commands;
 
 use Exception;
 use Illuminate\Console\Command;
@@ -36,6 +36,8 @@ class GenerateCrudCommand extends Command
             $this->generatePolicy($name);
             $this->generateRequests($name);
             $this->generateController($name);
+            $this->info("$name has been fully generated!");
+            return Command::SUCCESS;
         } catch (Exception $e) {
             $this->error($e->getMessage());
         }

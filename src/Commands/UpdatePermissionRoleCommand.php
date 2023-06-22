@@ -1,6 +1,6 @@
 <?php
 
-namespace Dwikipeddos\PeddosLaravelTools\Console\Commands;
+namespace Dwikipeddos\PeddosLaravelTools\Commands;
 
 use Illuminate\Console\Command;
 use Spatie\Permission\Models\Permission;
