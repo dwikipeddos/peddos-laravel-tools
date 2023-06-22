@@ -1,0 +1,38 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Requests\{Name}StoreRequest;
+use App\Http\Requests\{Name}UpdateRequest;
+use App\Models\{Name};
+
+
+class {Name}Controller extends Controller
+{
+    public function index()
+    {
+        return {Name}::all();
+    }
+
+    public function store({Name}StoreRequest $request)
+    {
+        return {Name}::create($request->validated());
+    }
+
+    public function show({Name} ${name})
+    {
+        return ${name};
+    }
+
+    public function update({Name}UpdateRequest $request, {Name} ${name})
+    {
+        ${name}->update($request->validated());
+        return ${name};
+    }
+
+    public function destroy({Name} ${name})
+    {
+        ${name}->delete();
+        return response()->noContent();
+    }
+}

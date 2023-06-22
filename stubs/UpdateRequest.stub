@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Http\Requests;
+
+use App\Models\{Name};
+use Illuminate\Foundation\Http\FormRequest;
+
+class {Name}UpdateRequest extends FormRequest
+{
+    public function authorize()
+    {
+        return $this->user()->can('update', $this->route('{name}'));
+    }
+
+    public function rules()
+    {
+        return [
+            //
+        ];
+    }
+}

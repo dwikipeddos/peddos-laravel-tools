@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Policies;
+
+use App\Models\{Name};
+use App\Models\User;
+
+class {Name}Policy
+{
+    public function viewAny(User $user)
+    {
+        return $user->can('{name}.viewAny');
+    }
+
+    public function view(User $user, {Name} ${name})
+    {
+        return $user->can('{name}.view');
+    }
+
+    public function create(User $user)
+    {
+        return $user->can('{name}.create');
+    }
+
+    public function update(User $user, {Name} ${name})
+    {
+        return $user->can('{name}.update');
+    }
+
+    public function delete(User $user, {Name} ${name})
+    {
+        return $user->can('{name}.delete');
+    }
+}
