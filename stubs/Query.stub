@@ -41,3 +41,4 @@ class {Name}Query extends PaginatedQuery
             //AllowedInclude::relationship('user'),
         ];
     }
+}
