@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands;
+namespace Dwikipeddos\PeddosLaravelTools\Console\Commands;
 
 use Exception;
 use Illuminate\Console\Command;
@@ -22,7 +22,7 @@ class GenerateCrudCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Generate all with default CRUD function';
 
     /**
      * Execute the console command.
@@ -66,7 +66,12 @@ class GenerateCrudCommand extends Command
     function generateFileFromStub(string $stub, string $filenameSuffix, string $fileLocation, string $name): void
     {
         $className = ucfirst($name) . $filenameSuffix;
-        $content = File::get(base_path("stubs/$stub.stub"));
+
+        $stubPath = dirname(__DIR__, 2) . '/stubs/';
+        // $content = File::get(base_path("stubs/$stub.stub"));
+        // dd(['stub' => $stubPath, 'full' => $stubPath . "$stub.stub"]);
+        $content = File::get($stubPath . "$stub.stub");
+
 
         $content = str_replace('{name}', Str::lower($name), $content);
         $content = str_replace('{Name}', ucfirst($name), $content);

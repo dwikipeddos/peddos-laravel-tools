@@ -2,6 +2,8 @@
 
 namespace Dwikipeddos\PeddosLaravelTools;
 
+use App\Console\Commands\GenerateCrudCommand;
+use Dwikipeddos\PeddosLaravelTools\Console\Commands\UpdatePermissionRoleCommand;
 use Illuminate\Support\ServiceProvider;
 
 class PeddosLaravelToolsServiceProvider extends ServiceProvider
@@ -17,7 +19,11 @@ class PeddosLaravelToolsServiceProvider extends ServiceProvider
         ], 'peddos-laravel-tools-migration');
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
 
-        //stubs
-        $this->publishes([__DIR__ . '/../stubs/' => base_path('stubs'), 'peddos-laravel-tools-stubs']);
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                GenerateCrudCommand::class,
+                UpdatePermissionRoleCommand::class,
+            ]);
+        }
     }
 }
