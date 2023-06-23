@@ -73,7 +73,7 @@ class GenerateCrudCommand extends Command
 
     function generateRoute(string $name): void
     {
-        $route = "Route::apiResource(" . Str::lower($name) . ", " . ucfirst($name) . "Controller::class);";
+        $route = "Route::apiResource('" . Str::lower($name) . "', " . ucfirst($name) . "Controller::class);";
         $apiRoutesPath = base_path('routes/api.php'); // Path to the API routes file
         $content = File::get($apiRoutesPath); // Read the content of the API routes file
         $newContent = $content . "\n" . $route; // Append the custom route to the existing content
