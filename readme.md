@@ -32,6 +32,12 @@ don't forget to publish the config file by running
 php artisan vendor:publish --tag=peddos-laravel-tools-config
 ```
 
+also publish spatie permissions config and migration
+
+```
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+```
+
 ## Usage Example
 
 Below are example usage of the packages
