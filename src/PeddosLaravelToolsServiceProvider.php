@@ -3,6 +3,7 @@
 namespace Dwikipeddos\PeddosLaravelTools;
 
 use Dwikipeddos\PeddosLaravelTools\Commands\GenerateCrudCommand;
+use Dwikipeddos\PeddosLaravelTools\Commands\GenerateQueryCommand;
 use Dwikipeddos\PeddosLaravelTools\Commands\UpdatePermissionRoleCommand;
 use Illuminate\Support\ServiceProvider;
 
@@ -23,6 +24,7 @@ class PeddosLaravelToolsServiceProvider extends ServiceProvider
             $this->commands([
                 GenerateCrudCommand::class,
                 UpdatePermissionRoleCommand::class,
+                GenerateQueryCommand::class,
             ]);
         }
     }

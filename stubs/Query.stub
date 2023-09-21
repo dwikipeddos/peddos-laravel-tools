@@ -31,7 +31,7 @@ class {Name}Query extends PaginatedQuery
     protected function getAllowedFilters(): array
     {
         return [
-            //AllowedFilter::exact('name'),
+            //AllowedFilter::partial('name'),
         ];
     }
 
