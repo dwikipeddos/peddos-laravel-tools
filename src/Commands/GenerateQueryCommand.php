@@ -22,19 +22,14 @@ class GenerateQueryCommand extends Command
      */
     protected $description = 'Generate query';
 
-    // protected GenerateFileFromStubAction $action;
-
     /**
      * Execute the console command.
      */
-
     public function handle(GenerateFileFromStubAction $action)
     {
         try {
-            // $this->action = new GenerateFileFromStubAction();
             $name = $this->argument('name');
             $action->execute("Query", "Query", "Queries/", $name);
-            // $this->action->execute("Query", "Query", "Queries/", $name);
             $this->info("$name has been fully generated!");
             return Command::SUCCESS;
         } catch (Exception $e) {
