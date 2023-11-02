@@ -29,7 +29,7 @@ class GenerateEnumCommand extends Command
     {
         try {
             $name = $this->argument('name');
-            $action->execute("Enum", "Enum", "Enums/", $name);
+            $action->execute("", "Enum", "Enums/", $name);
             $this->info("$name Enum has been fully generated!");
             return Command::SUCCESS;
         } catch (Exception $e) {
