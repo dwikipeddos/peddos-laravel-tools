@@ -199,8 +199,59 @@ first of you need to prepare your model like so :
 
 ```php
 use Dwikipeddos\PeddosLaravel\Tools\HasSingleImage;
-use 
+use Spatie\MediaLibrary\HasMedia;
+
+class Article implements HasMedia{
+    use HasSingleImage;
+}
 ```
+
+by default, the package should generate both the image and thumbnail with the collection name of "image" and "thumb" respectively, however you can change this by overrideng ``$defaultSingleImageName``  and the ``$defaultThumbnailName`` like
+
+```php
+class Article implements HasMedia{
+    use HasSingleImage;
+
+    $defaultThumnailName = "thumbnail";
+    $defaultSingleImageName = "Banner";
+}
+```
+
+also by default the package has image placeholder in case the model has no image at all, you can change the default by doing 
+
+```php
+public string $defaultSingleImage = "https://image.com/pepega.png";
+public string $defaultThumbnail = "https://image.com/pepega-sm.png";
+
+```
+
+and, how do you insert image to using Single image? simply by
+
+```php
+class ArticleController extends Controller{
+    function store(ArticleStoreRequest $request){
+        $article = Article::create($request->validated());
+        $article->addSingleImageFromRequest(); //THIS!
+    }
+}
+```
+
+by default addSingleImageFromRequest() will use the $defaultSingleImageName in the model as the request key that contains the image but you can do 
+
+```php
+    $article->addSingleImageFromRequest("my_image_key"); 
+    //this will make the package to use "my_image_key" to find the image
+```
+
+and to get the image you can simply do
+
+```php
+$article->getSingleImage();
+//or to get the thumbnail
+$article->getSingleImageThumbnail();
+```
+
+IT WORKS!
 
 ## Sync Role and Permission
 
