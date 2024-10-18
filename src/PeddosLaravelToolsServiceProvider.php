@@ -2,9 +2,17 @@
 
 namespace Dwikipeddos\PeddosLaravelTools;
 
-use Dwikipeddos\PeddosLaravelTools\Commands\GenerateActionCommand;
-use Dwikipeddos\PeddosLaravelTools\Commands\GenerateCrudCommand;
-use Dwikipeddos\PeddosLaravelTools\Commands\GenerateEnumCommand;
+use Dwikipeddos\PeddosLaravelTools\Commands\cruds\GenerateActionCommand as CrudsGenerateActionCommand;
+use Dwikipeddos\PeddosLaravelTools\Commands\cruds\GenerateControllerCommand;
+use Dwikipeddos\PeddosLaravelTools\Commands\cruds\GenerateEnumCommand;
+use Dwikipeddos\PeddosLaravelTools\Commands\cruds\GenerateFactoryCommand;
+use Dwikipeddos\PeddosLaravelTools\Commands\cruds\GenerateMigrationCommand;
+use Dwikipeddos\PeddosLaravelTools\Commands\cruds\GenerateModelCommand;
+use Dwikipeddos\PeddosLaravelTools\Commands\cruds\GeneratePolicyCommand;
+use Dwikipeddos\PeddosLaravelTools\Commands\cruds\GenerateQueryCommand as CrudsGenerateQueryCommand;
+use Dwikipeddos\PeddosLaravelTools\Commands\cruds\GenerateRequestCommand;
+use Dwikipeddos\PeddosLaravelTools\Commands\GenerateCrudDomainCommand;
+use Dwikipeddos\PeddosLaravelTools\Commands\GenerateDomainCommand;
 use Dwikipeddos\PeddosLaravelTools\Commands\GenerateQueryCommand;
 use Dwikipeddos\PeddosLaravelTools\Commands\UpdatePermissionRoleCommand;
 use Illuminate\Support\ServiceProvider;
@@ -24,11 +32,26 @@ class PeddosLaravelToolsServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->commands([
-                GenerateCrudCommand::class,
+                // GenerateCrudCommand::class,
+                // GenerateActionCommand::class,
+                // GenerateQueryCommand::class,
+                // GenerateEnumCommand::class,
+
+                //new
                 UpdatePermissionRoleCommand::class,
-                GenerateQueryCommand::class,
-                GenerateActionCommand::class,
+
+                CrudsGenerateActionCommand::class,
+                GenerateControllerCommand::class,
                 GenerateEnumCommand::class,
+                GenerateFactoryCommand::class,
+                GenerateMigrationCommand::class,
+                GenerateModelCommand::class,
+                GeneratePolicyCommand::class,
+                CrudsGenerateQueryCommand::class,
+                GenerateRequestCommand::class,
+                
+                GenerateDomainCommand::class,
+                GenerateCrudDomainCommand::class
             ]);
         }
     }

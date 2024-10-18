@@ -6,6 +6,9 @@ use Dwikipeddos\PeddosLaravelTools\Actions\GenerateFileFromStubAction;
 use Exception;
 use Illuminate\Console\Command;
 
+/**
+ * @deprecated
+ */
 class GenerateActionCommand extends Command
 {
     /**

@@ -5,11 +5,11 @@ namespace {Namespace};
 use {ModelPath}\{Name};
 use Illuminate\Foundation\Http\FormRequest;
 
-class {Name}StoreRequest extends FormRequest
+class {Name}ShowRequest extends FormRequest
 {
     public function authorize()
     {
-        return $this->user()->can('create', {Name}::class);
+        return $this->user()->can('view', $this->route('{name}'));
     }
 
     public function rules()
