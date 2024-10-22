@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests;
+namespace {Namespace};
 
-use App\Models\{Name};
+use {ModelPath}\{Name};
 use Illuminate\Foundation\Http\FormRequest;
 
 class {Name}UpdateRequest extends FormRequest

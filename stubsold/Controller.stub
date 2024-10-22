@@ -1,18 +1,17 @@
 <?php
 
-namespace {Namespace};
+namespace App\{Path};
 
-use {RequestPath}\{Name}StoreRequest;
-use {RequestPath}\{Name}UpdateRequest;
+use App\Http\Requests\{Name}StoreRequest;
+use App\Http\Requests\{Name}UpdateRequest;
 use {ModelPath}\{Name};
-use {QueryPath}\{Name}Query;
-use App\Http\Controllers\Controller;
+use App\Queries\{Name}Query;
 
 class {Name}Controller extends Controller
 {
     public function index({Name}Query ${name}Query)
     {
-        $this->authorize('viewAny',{Name}::class);
+        $this->authorize('viewAny',{Name});
         return ${name}Query->includes()->filterSortPaginateWithAppend();
     }
 

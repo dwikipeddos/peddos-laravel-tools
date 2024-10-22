@@ -1,0 +1,27 @@
+<?php
+
+namespace {Namespace};
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+use {ModelPath}\{Name};
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
+ */
+class {Name}Factory extends Factory
+{
+
+    protected $model = {Name}::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            //
+        ];
+    }
+}

@@ -1,6 +1,6 @@
 <?php
 
-namespace {Namespace}\Policies;
+namespace App\{Path};
 
 use {ModelPath}\{Name};
 use App\Models\User;
